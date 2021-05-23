@@ -1,0 +1,35 @@
+.editor {
+    cursor: text;
+    padding: 16px;
+    margin-bottom: 2em;
+    background: #fefefe;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 800px;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .editor :global(.public-DraftEditor-content) {
+    min-height: 140px;
+  }
+
+
+  .buttonContainer{
+    border: 1px solid #000000ad;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 14px;
+  }
+
+  .titleInput{
+    font-size: 3rem;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+  .titleInput::placeholder{
+    color: #b3b3b1;
+    font-family: medium-content-title-font,Georgia,Cambria,"Times New Roman",Times,serif;
+  }
