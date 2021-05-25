@@ -1,9 +1,7 @@
 .container {
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
+  max-width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .main {

@@ -1,0 +1,22 @@
+.ToolBarContainer{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F7FA;
+    border: 1px solid #e5e7eb;
+    margin: 0px auto;
+    margin-bottom: 50px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+ 
+}
+
+.rightGroup{
+    padding-right: 50px;
+}
+
+.leftGroup{
+    padding-left: 50px;
+}

@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;
 }
 
 a {
@@ -13,4 +13,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+blockquote{
+  border-left-width: 5px;
+  border-left-color: black;
+  border-left-style: solid;
+  padding: 10px;
+  padding-left: 20px;
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

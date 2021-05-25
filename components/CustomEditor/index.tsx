@@ -36,7 +36,7 @@ import {
   CodeBlockButton,
 } from "@draft-js-plugins/buttons";
 import { Camera, Play } from "react-bootstrap-icons";
-import CustomVideo from "../Video";
+
 const inlineToolbarPlugin = createInlineToolbarPlugin({
   theme: {
     buttonStyles,
@@ -49,18 +49,23 @@ const sideToolbarPlugin = createSideToolbarPlugin({
     toolbarStyles: sidebarToolbarStyles,
     blockTypeSelectStyles: blockTypeSelectStyles,
   },
-  popperOptions:{
-    placement: 'left',
+  popperOptions: {
+    placement: "left",
     modifiers: [
       {
-        name: 'offset',
+        name: "offset",
         options: {
-          offset: [0, 50],
+          offset: [0, 10],
+        },
+      },
+      {
+        name: 'flip',
+        options: {
+          fallbackPlacements: ['left', 'right','top'],
         },
       },
     ],
-  }
-
+  },
 });
 const linkPlugin = createLinkPlugin({
   theme: linkStyles,
@@ -68,6 +73,7 @@ const linkPlugin = createLinkPlugin({
 } as any);
 const imagePlugin = createImagePlugin();
 const videoPlugin = createVideoPlugin();
+console.log('component run...');
 
 const CustomEditor = (): ReactElement => {
   const [plugins, InlineToolbar, SideToolbar, addImage, addVideo] =
@@ -121,7 +127,7 @@ const CustomEditor = (): ReactElement => {
 
   const InsertVideo = () => {
     console.log(editorState);
-   onChange(
+    onChange(
       addVideo(editorState, {
         src: "https://youtu.be/1gukvtH_a3I",
       })
@@ -148,8 +154,7 @@ const CustomEditor = (): ReactElement => {
 
   return (
     <div className={editorStyles.editor}>
-      
-      <textarea className={editorStyles.titleInput} placeholder="Title"/>
+      <textarea className={editorStyles.titleInput} placeholder="Title" />
       <Editor
         editorKey="SimpleInlineToolbarEditor"
         editorState={editorState}
@@ -161,7 +166,6 @@ const CustomEditor = (): ReactElement => {
       />
       <InlineToolbar>
         {
-          // may be use React.Fragment instead of div to improve perfomance after React 16
           (externalProps) => (
             <>
               <BoldButton {...externalProps} />
@@ -179,32 +183,32 @@ const CustomEditor = (): ReactElement => {
         }
       </InlineToolbar>
       <SideToolbar>
-        {
-          (externalProps) => (
-            <>
-            
-              <span className={editorStyles.buttonContainer}>
-                <Play width="20" height="20" color="#000000ad" onClick={() => InsertVideo()} />
-              </span>
-
-              <span className={editorStyles.buttonContainer}>
-                <Camera
-                  width="20"
-                  height="20"
-                  color="#000000ad"
-                  onClick={() => UploadFileClick()}
-                />
-              </span>
-              <span  style={{opacity:0}}>
-              xyz
+        {(externalProps) => (
+          <>
+          
+            <span className={editorStyles.buttonContainer}>
+              <Play
+                width="20"
+                height="20"
+                color="#000000ad"
+                onClick={() => InsertVideo()}
+              />
             </span>
-            </>
-          )
-        }
+
+            <span className={editorStyles.buttonContainer}>
+              <Camera
+                width="20"
+                height="20"
+                color="#000000ad"
+                onClick={() => UploadFileClick()}
+              />
+            </span>
+            {/* <Separator  {...externalProps}/> */}
+          </>
+        )}
       </SideToolbar>
       <input
         type="file"
-        id="vvv"
         ref={hiddenInput}
         onChange={showImage}
         hidden

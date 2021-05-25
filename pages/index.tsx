@@ -1,12 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import CustomEditor from '../components/CustomEditor/index';
+import DynamicLoadedEditor from '../components/Deditor';
 
 export default function Home() {
   return (
     <div className={styles.container}>
-  <CustomEditor/>
+  {/* <CustomEditor/> */}
+  {/* <SlateEditor/>             */}
+  <DynamicLoadedEditor/>
     </div>
   )
 }
